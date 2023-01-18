@@ -1,0 +1,26 @@
+{
+  "name": "pastebinflask",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tailwind.config.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "npx tailwindcss -i pastebin/static/src/css/input.css -o pastebin/static/src/css/dist/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mr-Sunglasses/paste.py.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mr-Sunglasses/paste.py/issues"
+  },
+  "homepage": "https://github.com/Mr-Sunglasses/paste.py#readme",
+  "dependencies": {
+    "flowbite": "^1.6.2"
+  }
+}
