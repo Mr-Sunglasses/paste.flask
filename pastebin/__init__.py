@@ -16,3 +16,8 @@ Migrate(app, db)
 @app.route("/")
 def home():
     return render_template('index.html')
+
+
+@app.errorhandler(404)
+def error_404(e):
+    return render_template('error404.html'), 404
