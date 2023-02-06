@@ -1,23 +1,23 @@
-import os, random
-from flask import Flask, render_template, url_for
+import os
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-
-basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
+# Key for Forms
+app.config['SECRET_KEY'] = 'mysecretkey'
 
-app.config['SECRET_KEY'] = "mySecreatKey"
+############################################
+
+        # SQL DATABASE AND MODELS
+
+##########################################
+basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db = SQLAlchemy(app=app)
+db = SQLAlchemy(app)
 Migrate(app, db)
 
-@app.route("/")
-def home():
-    return render_template('index.html')
+from pastebin.paste.views import paste_blueprint
 
-
-@app.errorhandler(404)
-def error_404(e):
-    return render_template('error404.html'), 404
+app.register_blueprint(paste_blueprint, url_prefix='/pastes')

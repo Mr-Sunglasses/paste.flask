@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %} Paste_Data {% endblock %}
+{% block content %}
+    <ul>
+        {% for i in ids %}
+            <li>{{ i }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

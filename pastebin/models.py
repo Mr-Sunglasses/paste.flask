@@ -1,14 +1,15 @@
 from pastebin import db
 
-class Bin(db.Model):
+class PasteBook(db.Model):
 
-    __tablename__ = "pastebinpys"
+    __tablename__ = 'pastebooks'
 
-    id: int = db.Column(db.Integer, primary_key = True )
-    content: str = db.Column(db.Text)
+    id = db.Column(db.Integer, primary_key = True)
+    data = db.Column(db.Text)
 
-    def __init__(self, content) -> None:
-        self.content = content
-    
-    def __repr__(self) -> str:
-        return f"{self.content}"
+    def __init__(self, data):
+        self.data = data
+
+    def __repr__(self):
+        return f"{self.id} and {self.data}"
+
