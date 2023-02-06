@@ -16,7 +16,7 @@ def paste():
         db.session.add(my_data)
         db.session.commit()
 
-        redirect(url_for('pastes.show_allid'))
+        return redirect(url_for('pastes.show_allid'))
     return render_template('add_paste.html', form=form)
 
 @paste_blueprint.route('/show_allid')
